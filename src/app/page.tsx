@@ -1,19 +1,9 @@
-import Head from 'next/head';
-import TodoList from './components/TodoList';
-
-export default function Home() {
+// app/page.tsx
+export default function HomePage() {
   return (
-    <div className='bg-slate-800 h-[100vh] p-4'>
-      <Head>
-        <title>Controle Financeiro</title>
-        <meta name="description" content="Controle financeiro" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        <h1>Controle Financeiro</h1>
-        <TodoList />
-      </main>
+    <div>
+      <h1>Bem-vindo à página inicial!</h1>
+      <p>Este é o conteúdo da página principal.</p>
     </div>
   );
 }
