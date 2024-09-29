@@ -6,7 +6,9 @@ export default function FinancePage() {
       <div>
         <h1>Finanças</h1>
         <p>Acompanhe suas finanças pessoais aqui.</p>
-        <FinanceCard />
+        <section className="bg-slate-300 grid grid-cols-3 grid-flow-col">
+            <FinanceCard />
+        </section>
       </div>
     );
   }

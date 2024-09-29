@@ -37,11 +37,11 @@ const FinanceCard: React.FC = () => {
     .reduce((total, expense) => total + expense.amount, 0);
 
   return (
-    <div className="p-4">
+    <div className="p-4 ">
       {/* Card da lista de despesas */}
       <div className="bg-white shadow-md rounded-lg p-6 mb-6">
         <h2 className="text-xl font-bold mb-4">Despesas Mensais</h2>
-        <ul className="space-y-4">
+        <ul className="space-y-2 mb-14">
           {expenses.map((expense) => (
             <li key={expense.id} className="flex items-center justify-between border-b pb-2">
               <div className="flex items-center space-x-4">
@@ -49,31 +49,32 @@ const FinanceCard: React.FC = () => {
                   type="checkbox"
                   checked={expense.isPaid}
                   onChange={() => togglePaymentStatus(expense.id)}
-                  className="h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500"
+                  className="h-4 w-4 text-green-600 border-gray-300 rounded focus:ring-green-500"
                 />
-                <div>
-                  <span className="font-semibold">{expense.name}</span>
-                  <span className="ml-2 text-gray-500 text-sm">({expense.category})</span>
+                <div className='flex flex-col'>
+                  <span className="text-gray-500 text-xs">({expense.category})</span>
+                  <span className="font-semibold text-sm">{expense.name}</span>
                 </div>
               </div>
-              <span className="text-lg font-bold">R$ {expense.amount.toFixed(2)}</span>
+              <span className="text-sm font-bold">R$ {expense.amount.toFixed(2)}</span>
             </li>
           ))}
         </ul>
+
+        {/* Card do resumo financeiro */}
+        <div className="bg-sky-200 flex justify-between items-center align-middle">
+          <div className="flex justify-between items-center gap-2">
+            <span className="text-sm">Total de despesas:</span>
+            <span className="text-sm font-bold">R$ {totalAmount.toFixed(2)}</span>
+          </div>
+          <div className="flex justify-between items-center gap-2">
+            <span className="text-sm text-red-500">Ainda a pagar:</span>
+            <span className="text-sm font-bold text-red-500">R$ {totalUnpaid.toFixed(2)}</span>
+          </div>
+        </div>
       </div>
 
-      {/* Card do resumo financeiro */}
-      <div className="bg-white shadow-md rounded-lg p-6">
-        <h2 className="text-xl font-bold mb-4">Resumo Financeiro</h2>
-        <div className="flex justify-between items-center">
-          <span className="text-lg font-semibold">Total de despesas:</span>
-          <span className="text-lg font-bold">R$ {totalAmount.toFixed(2)}</span>
-        </div>
-        <div className="flex justify-between items-center mt-2">
-          <span className="text-lg font-semibold text-red-500">Ainda a pagar:</span>
-          <span className="text-lg font-bold text-red-500">R$ {totalUnpaid.toFixed(2)}</span>
-        </div>
-      </div>
+      
     </div>
   );
 };
