@@ -1,6 +1,7 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { fetchData } from '../services/finances/transaction';
 
 interface Expense {
   id: number;
@@ -12,12 +13,24 @@ interface Expense {
 
 const FinanceCard: React.FC = () => {
   // Lista inicial de despesas
-  const [expenses, setExpenses] = useState<Expense[]>([
-    { id: 1, name: 'Aluguel', amount: 1500, category: 'Casa', isPaid: false },
-    { id: 2, name: 'Conta de Luz', amount: 200, category: 'Utilidades', isPaid: false },
-    { id: 3, name: 'Supermercado', amount: 500, category: 'Alimentação', isPaid: false },
-    { id: 4, name: 'Internet', amount: 100, category: 'Utilidades', isPaid: false },
-  ]);
+  const [expenses, setExpenses] = useState<Expense[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect( () => {
+    async function getExpenses() {
+      try {
+        const data = await fetchData();
+        console.log(data);
+        setExpenses(data);
+      } catch (error) {
+        console.log('Error fetching transactions', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    getExpenses();
+  }, []);
 
   // Função para alternar o status de pagamento
   const togglePaymentStatus = (id: number) => {
@@ -56,7 +69,7 @@ const FinanceCard: React.FC = () => {
                   <span className="font-semibold text-sm">{expense.name}</span>
                 </div>
               </div>
-              <span className="text-sm font-bold">R$ {expense.amount.toFixed(2)}</span>
+              
             </li>
           ))}
         </ul>
