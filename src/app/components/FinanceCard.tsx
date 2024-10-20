@@ -50,7 +50,7 @@ const FinanceCard: React.FC = () => {
     .reduce((total, expense) => total + expense.amount, 0);
 
   return (
-    <div className="p-4 ">
+    <div className="">
       {/* Card da lista de despesas */}
       <div className="bg-white shadow-md rounded-lg p-6 mb-6">
         <h2 className="text-xl font-bold mb-4">Despesas Mensais</h2>
