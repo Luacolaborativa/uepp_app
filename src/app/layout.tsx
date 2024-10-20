@@ -5,8 +5,8 @@ import TopNavbar from './components/TopNavbar';
 import SideNavbar from './components/SideNavbar';
 
 export const metadata = {
-  title: 'Minha Aplicação',
-  description: 'Aplicação com layout fixo',
+  title: 'UÉPP',
+  description: 'Organize sua vida',
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -14,18 +14,24 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="pt-br">
       <body>
         <div className="layout-container">
-          {/* Navbar no topo */}
-          <TopNavbar />
 
           {/* Layout principal com aside e conteúdo */}
           <div className="main-layout">
+            
             {/* Menu lateral (aside) */}
             <SideNavbar />
 
-            {/* Conteúdo dinâmico das páginas */}
-            <main className="content">
-              {children}
-            </main>
+
+            <section className='flex flex-col w-full'>
+              {/* Navbar no topo */}
+              <TopNavbar />
+
+              {/* Conteúdo dinâmico das páginas */}
+              <main className="content">
+                {children}
+              </main>
+            </section>
+
           </div>
         </div>
       </body>

@@ -4,9 +4,9 @@ import styles from './TopNavbar.module.css'; // Crie um arquivo CSS separado se 
 
 export default function TopNavbar() {
   return (
-    <header className={styles.navbar}>
+    <header className='flex flex-row bg-orange-500'>
       <nav>
-        <ul>
+        <ul className='list-none p-0 m-0 flex justify-center'>
           <li><Link href="/">Dashboard</Link></li>
           <li><Link href="/tasks">Tarefas</Link></li>
           <li><Link href="/finances">Finanças</Link></li>
