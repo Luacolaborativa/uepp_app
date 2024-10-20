@@ -1,14 +1,13 @@
 import FinanceCard from "../components/FinanceCard";
+import ContentHeader from "../components/ContentHeader";
 
 // app/finance/page.tsx
 export default async function FinancePage() {
-  
-
     return (
       <div>
-        <h1>Finanças</h1>
         
-        <p>Acompanhe suas finanças pessoais aqui.</p>
+        <ContentHeader title='Finança' subtitle='Acompanhe suas finanças pessoais aqui.'/>
+
         <section className="bg-slate-300 grid grid-cols-3 grid-flow-col">
             <FinanceCard />
         </section>
