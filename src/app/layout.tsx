@@ -15,7 +15,7 @@ const lato = Lato({
 const raleway = Raleway({
   subsets: ['latin'],
   display: 'swap',
-  weight: '400',
+  weight: '700',
   variable: '--font-raleway'
 });
 
@@ -23,11 +23,6 @@ const globalStyles = `
   :root {
     --font-lato: ${lato.style.fontFamily};
     --font-raleway: ${raleway.style.fontFamily};
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-raleway) !important;
-    font-weight: 800 !important;
   }
 `;
 

@@ -1,4 +1,4 @@
-import FinanceCard from "../components/FinanceCard";
+import FinanceCard from "./FinanceCard";
 import ContentHeader from "../components/ContentHeader";
 
 // app/finance/page.tsx
