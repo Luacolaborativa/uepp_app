@@ -50,14 +50,7 @@ const FinanceCard: React.FC = () => {
     <section>
       <div className="bg-white shadow-md rounded-lg p-5 mb-6">
         <h2 className="text-xl text-slate-800">Despesas Mensais</h2>
-        {expenses.length === 0 ? (
-          <p className="text-slate-600 my-2">Nenhuma despesa encontrada.</p>
-        ) : (
-          <section>
-            <ExpenseList expenses={expenses} togglePaymentStatus={togglePaymentStatus} />
-            <FinancialSummary totalAmount={totalAmount} totalUnpaid={totalUnpaid} />
-          </section>
-        )}
+        <ExpenseList />
       </div>
     </section>
   );
