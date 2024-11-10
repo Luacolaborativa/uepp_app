@@ -1,31 +1,60 @@
 // app/layout.tsx
-import './globals.css'; // Importar os estilos globais aqui (opcional)
+import './globals.css';
 import { ReactNode } from 'react';
 import TopNavbar from './components/TopNavbar';
 import SideNavbar from './components/SideNavbar';
+import { Lato, Raleway } from 'next/font/google';
+
+const lato = Lato({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: '300',
+  variable: '--font-lato'
+});
+
+const raleway = Raleway({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: '700',
+  variable: '--font-raleway'
+});
+
+const globalStyles = `
+  :root {
+    --font-lato: ${lato.style.fontFamily};
+    --font-raleway: ${raleway.style.fontFamily};
+  }
+`;
 
 export const metadata = {
-  title: 'Minha Aplicação',
-  description: 'Aplicação com layout fixo',
+  title: 'UÉPP',
+  description: 'Organize sua vida',
+  styles: globalStyles,
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-br">
-      <body>
+      <body className={`${raleway.variable} ${lato.variable}`} >
         <div className="layout-container">
-          {/* Navbar no topo */}
-          <TopNavbar />
 
           {/* Layout principal com aside e conteúdo */}
           <div className="main-layout">
+            
             {/* Menu lateral (aside) */}
             <SideNavbar />
 
-            {/* Conteúdo dinâmico das páginas */}
-            <main className="content">
-              {children}
-            </main>
+
+            <section className='flex flex-col w-full'>
+              {/* Navbar no topo */}
+              <TopNavbar />
+
+              {/* Conteúdo dinâmico das páginas */}
+              <main className="content">
+                {children}
+              </main>
+            </section>
+
           </div>
         </div>
       </body>
