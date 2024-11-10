@@ -1,9 +1,14 @@
+import ContentHeader from "./components/ContentHeader";
+import DashboardCard from "./dashboards/DashboardCard";
+
 // app/page.tsx
 export default function HomePage() {
   return (
     <div>
-      <h1>Bem-vindo à página inicial!</h1>
-      <p>Este é o conteúdo da página principal.</p>
+      <ContentHeader title='Bem-vindo à página inicial!' subtitle='' />
+      <section className="bg-slate-200 rounded-lg grid grid-cols-3 grid-flow-col p-3">
+        <DashboardCard />
+      </section>
     </div>
   );
 }
