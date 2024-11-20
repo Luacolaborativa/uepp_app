@@ -4,6 +4,7 @@ import { ReactNode } from 'react';
 import TopNavbar from './components/TopNavbar';
 import SideNavbar from './components/SideNavbar';
 import { Lato, Raleway } from 'next/font/google';
+import { auth } from '@/auth';
 
 const lato = Lato({
   subsets: ['latin'],
@@ -32,31 +33,13 @@ export const metadata = {
   styles: globalStyles,
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({ children }: { children: ReactNode }) {
+  
+
   return (
     <html lang="pt-br">
       <body className={`${raleway.variable} ${lato.variable}`} >
-        <div className="layout-container">
-
-          {/* Layout principal com aside e conteúdo */}
-          <div className="main-layout">
-            
-            {/* Menu lateral (aside) */}
-            <SideNavbar />
-
-
-            <section className='flex flex-col w-full'>
-              {/* Navbar no topo */}
-              <TopNavbar />
-
-              {/* Conteúdo dinâmico das páginas */}
-              <main className="content">
-                {children}
-              </main>
-            </section>
-
-          </div>
-        </div>
+        { children }
       </body>
     </html>
   );
