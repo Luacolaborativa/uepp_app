@@ -21,7 +21,7 @@ export default function GlobalLayout({ children }: GlobalLayoutProps) {
                     <TopNavbar />
 
                     {/* Conteúdo dinâmico das páginas */}
-                    <main className="content">
+                    <main className="content bg-slate-200">
                         {children}
                     </main>
                 </section>

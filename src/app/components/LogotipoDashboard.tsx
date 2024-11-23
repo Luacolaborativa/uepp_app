@@ -3,12 +3,7 @@ import React from 'react';
 const LogotipoDashboard: React.FC = () => {
     return (
         <aside className="flex justify-center items-center pb-5">
-            <img
-                src="/imgs/logo.png"
-                alt="Logotipo Dashboard"
-                width="60"
-                className="block"
-            />
+           <h1 className='text-4xl text-slate-800'>UePP</h1>
         </aside>
     );
 };

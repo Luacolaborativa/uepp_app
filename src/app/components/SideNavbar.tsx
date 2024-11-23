@@ -20,9 +20,9 @@ const menuItems = [
 
 export default function SideNavbar() {
   return (
-    <aside className="bg-slate-900 w-[250px] p-3 h-full">
+    <aside className="bg-sky-100/10 w-[250px] p-3 h-full">
       <LogotipoDashboard />
-      <ul className='list-none p-0 m-0 [&>li]:mb-3 [&>li]:text-slate-300 [&>li]:p-1'>
+      <ul className='list-none p-0 m-0 [&>li]:mb-3 [&>li]:text-slate-800 [&>li]:p-1'>
         {menuItems.map((item, index) => (
           <li key={index} className='hover:text-orange-400'>
             <Link href={item.href} className='flex flex-row gap-2'>
