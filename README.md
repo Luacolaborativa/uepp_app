@@ -34,3 +34,29 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+
+
+import { NextResponse } from 'next/server'
+
+export async function POST(request: Request) {
+  try {
+    const { todos, checkedItemsValue } = await request.json()
+    
+    // Here you would typically update the todos in your database
+    // For this example, we'll just log the received data
+    console.log('Received updated todos:', todos)
+    console.log('Checked items value:', checkedItemsValue)
+
+    // Simulate a delay to mimic database operation
+    await new Promise(resolve => setTimeout(resolve, 1000))
+
+    return NextResponse.json({ message: "Todos updated successfully" }, { status: 200 })
+  } catch (error) {
+    console.error('Error updating todos:', error)
+    return NextResponse.json({ message: "Error updating todos" }, { status: 500 })
+  }
+}
+
+

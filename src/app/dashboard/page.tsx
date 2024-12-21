@@ -1,15 +1,12 @@
-import FinanceCard from "./FinanceCard";
 import ContentHeader from "../components/ContentHeader";
 import GlobalLayout from "../components/GlobalLayout";
 
 // app/finance/page.tsx
-export default async function FinancePage() {
+export default async function Page() {
     return (
       <GlobalLayout>
-        <ContentHeader title='Finanças' subtitle='Acompanhe suas finanças pessoais aqui'/>
-
         <section className="bg-slate-200 rounded-lg grid grid-cols-3 grid-flow-col p-3">
-          <FinanceCard />
+        
         </section>
       </GlobalLayout>
     );
